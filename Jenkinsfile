@@ -7,5 +7,16 @@ pipeline {
       }
     }
 
+    stage('docker login') {
+      agent any
+      environment {
+        DOCKERHUB_USER = 'mayowaoluwasina@gmail.com'
+        DOCKERHUB_PASSWORD = 'mayor@360'
+      }
+      steps {
+        sh 'docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD'
+      }
+    }
+
   }
 }
