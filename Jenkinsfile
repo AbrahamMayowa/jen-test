@@ -10,7 +10,7 @@ pipeline {
     stage('docker login') {
       agent any
       environment {
-        DOCKERHUB_USER = 'mayowaoluwasina@gmail.com'
+        DOCKERHUB_USER = 'mayorfullstack'
         DOCKERHUB_PASSWORD = 'mayor@360'
       }
       steps {
