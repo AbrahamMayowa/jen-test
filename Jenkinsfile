@@ -9,7 +9,7 @@ pipeline {
 
     stage('buid docker image') {
       steps {
-        sh 'sudo docker build -f jen-test/Dockerfile -t mayorfullstack/jenkin-node:latest .'
+        sh 'sudo docker build -f Dockerfile -t mayorfullstack/jenkin-node:latest .'
       }
     }
 
