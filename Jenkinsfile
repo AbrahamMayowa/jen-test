@@ -7,28 +7,9 @@ pipeline {
       }
     }
 
-    stage('docker login') {
-      parallel {
-        stage('docker login') {
-          agent any
-          
-          steps {
-            sh 'sudo docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD'
-          }
-        }
-
-        stage('build image') {
-          steps {
-            sh 'sudo docker build . -t mayorfullstack/jenkin-node '
-          }
-        }
-
-      }
-    }
-
-    stage('Push docker image') {
+    stage('buid docker image') {
       steps {
-        sh 'sudo docker push mayorfullstack/jenkin-node:latest'
+        sh 'docker build -f jen-test/Dockerfile -t mayorfullstack/jenkin-node:latest .'
       }
     }
 
