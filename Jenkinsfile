@@ -8,13 +8,24 @@ pipeline {
     }
 
     stage('docker login') {
-      agent any
-      environment {
-        DOCKERHUB_USER = 'mayorfullstack'
-        DOCKERHUB_PASSWORD = 'mayor@360'
-      }
-      steps {
-        sh 'sudo docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD'
+      parallel {
+        stage('docker login') {
+          agent any
+          environment {
+            DOCKERHUB_USER = 'mayorfullstack'
+            DOCKERHUB_PASSWORD = 'mayor@360'
+          }
+          steps {
+            sh 'sudo docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD'
+          }
+        }
+
+        stage('build image') {
+          steps {
+            sh 'docker build . -t mayorfullstack/jenkin-node '
+          }
+        }
+
       }
     }
 
