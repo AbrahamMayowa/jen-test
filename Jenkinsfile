@@ -22,7 +22,7 @@ pipeline {
 
         stage('build image') {
           steps {
-            sh 'docker build . -t mayorfullstack/jenkin-node '
+            sh 'sudo docker build . -t mayorfullstack/jenkin-node '
           }
         }
 
