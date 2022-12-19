@@ -20,7 +20,7 @@ pipeline {
 
     stage('Push docker image') {
       steps {
-        sh 'docker push mayorfullstack/jenkin-node:latest'
+        sh 'sudo docker push mayorfullstack/jenkin-node:latest'
       }
     }
 
